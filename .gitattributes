@@ -1,0 +1,153 @@
+# ─────────────────────────────────────────────────────────────────────────────
+# .gitattributes for a Unity project
+#   • Normalizes line endings
+#   • Treats Unity YAML assets as mergeable text (Unity SmartMerge)
+#   • Routes large binary assets through Git LFS
+# Assumes Unity defaults: Editor ▸ Asset Serialization = "Force Text" and
+#   Version Control ▸ Mode = "Visible Meta Files".
+# ─────────────────────────────────────────────────────────────────────────────
+
+# Auto-detect text files; store as LF in the repo, check out native per OS.
+* text=auto
+
+# ── Macros ───────────────────────────────────────────────────────────────────
+# Unity YAML assets: always LF (Unity writes LF), 3-way merge via UnityYAMLMerge.
+[attr]unity-yaml text eol=lf merge=unityyamlmerge diff
+# Binary assets stored in Git LFS (no EOL conversion, no textual diff/merge).
+[attr]lfs        -text filter=lfs diff=lfs merge=lfs
+
+# ── Unity YAML text assets ───────────────────────────────────────────────────
+*.unity              unity-yaml
+*.prefab             unity-yaml
+*.asset              unity-yaml
+*.meta               unity-yaml
+*.mat                unity-yaml
+*.anim               unity-yaml
+*.controller         unity-yaml
+*.overrideController unity-yaml
+*.mask               unity-yaml
+*.playable           unity-yaml
+*.signal             unity-yaml
+*.physicMaterial     unity-yaml
+*.physicsMaterial2D  unity-yaml
+*.renderTexture      unity-yaml
+*.spriteatlas        unity-yaml
+*.spriteatlasv2      unity-yaml
+*.terrainlayer       unity-yaml
+*.mixer              unity-yaml
+*.preset             unity-yaml
+*.guiskin            unity-yaml
+*.fontsettings       unity-yaml
+*.flare              unity-yaml
+*.giparams           unity-yaml
+*.lighting           unity-yaml
+*.shadervariants     unity-yaml
+*.scenetemplate      unity-yaml
+
+# ── Other Unity text formats (JSON / asmdef / shaders) — keep LF, plain text ──
+*.json          text eol=lf
+*.inputactions  text eol=lf
+*.asmdef        text eol=lf
+*.asmref        text eol=lf
+*.shadergraph   text eol=lf
+*.shader        text
+*.compute       text
+*.cginc         text
+*.hlsl          text
+*.glslinc       text
+*.cs            text diff=csharp
+
+# ── Images ───────────────────────────────────────────────────────────────────
+*.png   lfs
+*.PNG   lfs
+*.jpg   lfs
+*.JPG   lfs
+*.jpeg  lfs
+*.gif   lfs
+*.bmp   lfs
+*.tga   lfs
+*.TGA   lfs
+*.tif   lfs
+*.tiff  lfs
+*.psd   lfs
+*.PSD   lfs
+*.exr   lfs
+*.hdr   lfs
+*.dds   lfs
+*.ico   lfs
+*.iff   lfs
+*.pict  lfs
+*.webp  lfs
+*.svg   lfs
+
+# Aseprite source art (this project uses com.unity.2d.aseprite).
+*.ase       lfs
+*.aseprite  lfs
+
+# ── Audio ────────────────────────────────────────────────────────────────────
+*.mp3   lfs
+*.wav   lfs
+*.WAV   lfs
+*.ogg   lfs
+*.aif   lfs
+*.aiff  lfs
+*.flac  lfs
+*.mod   lfs
+*.it    lfs
+*.s3m   lfs
+*.xm    lfs
+
+# ── Video ────────────────────────────────────────────────────────────────────
+*.mp4   lfs
+*.mov   lfs
+*.avi   lfs
+*.webm  lfs
+*.wmv   lfs
+*.mpg   lfs
+*.mpeg  lfs
+*.flv   lfs
+*.asf   lfs
+
+# ── Fonts ────────────────────────────────────────────────────────────────────
+*.ttf   lfs
+*.TTF   lfs
+*.otf   lfs
+*.OTF   lfs
+*.ttc   lfs
+
+# ── 3D models ────────────────────────────────────────────────────────────────
+*.fbx   lfs
+*.FBX   lfs
+*.obj   lfs
+*.blend lfs
+*.dae   lfs
+*.3ds   lfs
+*.dxf   lfs
+*.c4d   lfs
+*.lwo   lfs
+*.lws   lfs
+*.ma    lfs
+*.mb    lfs
+*.max   lfs
+*.abc   lfs
+*.ply   lfs
+*.stl   lfs
+*.skp   lfs
+
+# ── Archives & compiled binaries ─────────────────────────────────────────────
+*.zip          lfs
+*.7z           lfs
+*.gz           lfs
+*.rar          lfs
+*.tar          lfs
+*.bz2          lfs
+*.unitypackage lfs
+*.aar          lfs
+*.jar          lfs
+*.dll          lfs
+*.so           lfs
+*.dylib        lfs
+*.a            lfs
+*.bundle       lfs
+*.bytes        lfs
+*.cubemap      lfs
