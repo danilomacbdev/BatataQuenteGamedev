@@ -1,7 +1,7 @@
 # 🥔 Batata Quente Gamedev
 
 *(Links úteis)*
-* 📺 **Vídeo de Anúncio:** [Link do vídeo será adicionado aqui]
+* 📺 **Vídeo de Anúncio:** https://www.youtube.com/watch?v=iGSnZ2bCYeI
 * 🎬 **Vídeo do Resultado Final:** [Ainda vai demorar para sair! Link em breve]
 * 🎮 **Jogue no itch.io:** [Página do jogo será adicionada aqui]
 
